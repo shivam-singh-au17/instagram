@@ -5,7 +5,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
 
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 3030
 
 const connect = require("./src/config/db");
 
