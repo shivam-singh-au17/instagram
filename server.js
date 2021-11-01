@@ -16,17 +16,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use("/", postcontroller);
-
-
-app.get("/", async (req, res) => {
-  try {
-    return res.redirect("/post");
-  } catch (err) {
-    return res.status(400).send(err.message);
-  }
-});
-
+app.use("/post", postcontroller);
 
 app.listen(port, async () => {
   // RUN THE CONNECT FUNCTION
