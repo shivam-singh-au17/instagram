@@ -1,29 +1,30 @@
+require("dotenv").config();
+const mongoose = require("mongoose");
 
-const { MongoClient } = require("mongodb");
+mongoose.set("useNewUrlParser", true);
+mongoose.set("useFindAndModify", false);
+mongoose.set("useCreateIndex", true);
 
-const Db = "mongodb+srv://Shivammz20:Shivam@mz20@cluster0.fhq73.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
-const client = new MongoClient(Db, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-});
+const db = process.env.DB_URL
 
-var _db;
+const connect = () => {
 
-module.exports = {
-    connectToServer: function (callback) {
-        client.connect(function (err, db) {
-            if (db) {
-                _db = db.db("myFirstDatabase");
-                console.log("Successfully connected to MongoDB.");
-            }
-            return callback(err);
-        });
-    },
+    return mongoose.connect(db, {
+        keepAlive: 1,
+        connectTimeoutMS: 30000,
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    }, (err) => {
 
-    getDb: function () {
-        return _db;
-    },
-};
+        if (err) {
+            console.log("ERROR", err);
+        }
+
+    });
+}
+
+
+module.exports = connect;
 
 
