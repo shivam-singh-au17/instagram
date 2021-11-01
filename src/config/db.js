@@ -11,8 +11,6 @@ const db = process.env.DB_URL
 const connect = () => {
 
     return mongoose.connect(db, {
-        keepAlive: 1,
-        connectTimeoutMS: 30000,
         useNewUrlParser: true,
         useUnifiedTopology: true,
     }, (err) => {

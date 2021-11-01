@@ -18,7 +18,7 @@ app.use(postcontroller);
 
 app.get("/", async (req, res) => {
   try {
-    return res.redirect("/post");
+    return res.redirect("/post/");
   } catch (err) {
     return res.status(400).send(err.message);
   }
@@ -26,10 +26,13 @@ app.get("/", async (req, res) => {
 
 
 app.listen(port, async () => {
-  // RUN THE CONNECT FUNCTION
+
   await connect();
   console.log("Listening on post " + port);
+  
 })
+
+
 
 module.exports = app;
 
