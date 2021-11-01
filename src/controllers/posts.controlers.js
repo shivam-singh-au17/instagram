@@ -2,7 +2,7 @@ const express = require("express");
 const Post = require("../models/post.model");
 const router = express.Router();
 
-router.post("/list", async (req, res) => {
+router.post("/post", async (req, res) => {
   try {
     let post = new Post(req.body);
     post = await post.save();
@@ -18,7 +18,7 @@ router.post("/list", async (req, res) => {
   }
 });
 
-router.get("/list", async (req, res) => {
+router.get("/post", async (req, res) => {
   try {
     let posts = await Post.find();
     res.status(200).json({
@@ -33,7 +33,7 @@ router.get("/list", async (req, res) => {
   }
 });
 
-router.get("/:postId", async (req, res) => {
+router.get("/post/:postId", async (req, res) => {
   try {
     let post = await Post.findOne({
       _id: req.params.postId,
@@ -56,7 +56,7 @@ router.get("/:postId", async (req, res) => {
   }
 });
 
-router.put("/:postId", async (req, res) => {
+router.put("/post/:postId", async (req, res) => {
   try {
     let post = await Post.findByIdAndUpdate(req.params.postId, req.body, {
       new: true,
@@ -79,7 +79,7 @@ router.put("/:postId", async (req, res) => {
   }
 });
 
-router.delete("/:postId", async (req, res) => {
+router.delete("/post/:postId", async (req, res) => {
   try {
     let post = await Post.findByIdAndRemove(req.params.postId);
     if (post) {
