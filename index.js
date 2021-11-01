@@ -45,7 +45,7 @@ app.use("/", postcontroller);
 
 app.get("/", async (req, res) => {
   try {
-    return res.redirect("/data/");
+    return res.redirect("/list");
   } catch (err) {
     return res.status(400).send(err.message);
   }
