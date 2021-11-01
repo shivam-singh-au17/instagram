@@ -6,7 +6,8 @@ mongoose.set("useFindAndModify", false);
 mongoose.set("useCreateIndex", true);
 
 
-const db = process.env.DB_URL
+// const db = process.env.DB_URL
+const db = "mongodb+srv://Shivammz20:Shivam@mz20@cluster0.fhq73.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
 const connect = () => {
 
