@@ -24,6 +24,9 @@ app.use(loginController);
 app.use(tradingController);
 app.use(watchController);
 
+
+
+
 app.listen(port, async () => {
 
   await connect();
