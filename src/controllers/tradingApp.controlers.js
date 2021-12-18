@@ -56,6 +56,19 @@ router.get("/tradingApp/:tradingAppId", async (req, res) => {
     }
 });
 
+
+router.get("/tradingApp/search/:name", function (req, res) {
+
+    var regex = new RegExp(req.params.name, 'i');
+    TradingApp.find({ stockName: regex }).then((result) => {
+        res.status(200).json({
+            status: 200,
+            data: result,
+        })
+    });
+
+});
+
 router.put("/tradingApp/:tradingAppId", async (req, res) => {
     try {
         let tradingApp = await TradingApp.findByIdAndUpdate(req.params.tradingAppId, req.body, {
