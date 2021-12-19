@@ -3,6 +3,7 @@ let Schema = mongoose.Schema;
 
 let watchListDataSchema = new Schema(
     {
+        mainId: { type: String },
         stockName: { type: String },
         stockPrise: { type: Number },
         stockNSE: { type: Number },
