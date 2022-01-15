@@ -13,6 +13,7 @@ const signupController = require("./src/controllers/signup.controllers");
 const loginController = require("./src/controllers/login.controlers");
 const tradingController = require("./src/controllers/tradingApp.controlers");
 const watchController = require("./src/controllers/watchLiist.controllers");
+const resumeApp = require("./src/controllers");
 
 app.use(cors());
 app.use(express.json());
@@ -23,6 +24,7 @@ app.use(signupController);
 app.use(loginController);
 app.use(tradingController);
 app.use(watchController);
+app.use("/", resumeApp);
 
 
 
